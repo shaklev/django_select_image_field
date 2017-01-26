@@ -25,7 +25,9 @@ Since we use ```jquery``` and ```msdropdown (js & css)``` for the widget , you n
 
 ```python
 # templates/base.html
+```
 
+```javascript
 # You should include jquery and msdropdown (js & css )
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -37,7 +39,6 @@ Since we use ```jquery``` and ```msdropdown (js & css)``` for the widget , you n
 
 # Anywhere in the body section, you have to include this block code
 
-```javascript
 <script language="javascript">
   $(document).ready(function(e) {
     $(".select-img").msDropDown();
