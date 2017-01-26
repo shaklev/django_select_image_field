@@ -73,7 +73,7 @@ class CountriesForm(forms.Form):
 
 ## Example field
 
-This an example field that is used in the test_select_image app
+This an example field that is used in the test_select_image app  
 NOTE: For this field it's not used the default dd.css file from the msdropdown, instead it's used the test_select_image/static/msdropdown/dd.css file
 
 ![select-image field](https://s27.postimg.org/i9xa4grb7/Screenshot_from_2017_01_26_02_56_44.png)
