@@ -50,7 +50,7 @@ Add the form field to your form ( since we use django's forms.ChoiceField() we p
 ```python
 # forms.py
 from django import forms
-from django_range_slider.fields import RangeSliderField
+from django_select_image_field import SelectImageField
 
 COUNTRIES = (
     ('0','Macedonia','static/images/mk.png'),
@@ -58,7 +58,7 @@ COUNTRIES = (
     ('2','Ireland','static/images/ir.jpg'),
     ('3','Ecuador','static/images/ec.png'),
     ('4','Slovenia','static/images/si.png'),
-)
+) # these images are used from the test_select_image app
 
 
 class CountriesForm(forms.Form):
