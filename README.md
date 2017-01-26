@@ -50,7 +50,7 @@ Add the form field to your form ( since we use django's forms.ChoiceField() we p
 ```python
 # forms.py
 from django import forms
-from django_select_image_field import SelectImageField
+from django_select_image_field.fields import SelectImageField
 
 COUNTRIES = (
     ('0','Macedonia','static/images/mk.png'),
