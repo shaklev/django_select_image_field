@@ -1,5 +1,6 @@
 from django import forms
 from .fields import SelectImageField
+from django_select_image_field.fields import SelectImageField
 
 COUNTRIES = (
     ('0','Macedonia','static/images/mk.png'),
