@@ -24,18 +24,18 @@ An example app is avilable at [example app](https://github.com/shakle17/django_s
 Since we use ```jquery``` and ```msdropdown (js & css)``` for the widget , you need to include them in your main template (or the template where the widget will be rendered)
 
 ```javascript
-<!-- templates/base.html -->
+// templates/base.html 
 
-<!-- You should include jquery and msdropdown (js & css ) -->
+// You should include jquery and msdropdown (js & css )
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/js/msdropdown/jquery.dd.min.js"></script>
 <link rel="stylesheet" href="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/css/msdropdown/dd.css">
-<!-- alternativly my suggestion is to use the modified version of the css file ( dd.css ) that you can find in test_select_image/static/msdropdown/dd.css -->
+// alternativly my suggestion is to use the modified version of the css file ( dd.css ) that you can find in test_select_image/static/msdropdown/dd.css
 
 </head>
 
-<!-- Anywhere in the body section, you have to include this block code -->
+// Anywhere in the body section, you have to include this block code
 
 <script language="javascript">
   $(document).ready(function(e) {
