@@ -13,7 +13,9 @@ COUNTRIES = (
 class CountriesForm(forms.Form):
 
     name = SelectImageField(choices=COUNTRIES)
+    surname = SelectImageField(choices=COUNTRIES)
 
     def __init__(self, *args, **kwargs):
         super(CountriesForm, self).__init__(*args, **kwargs)
         self.fields['name'].widget.attrs['class'] = 'select-img form-control'
+        self.fields['surname'].widget.attrs['class'] = 'select-img form-control'
