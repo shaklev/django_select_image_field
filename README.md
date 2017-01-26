@@ -26,7 +26,7 @@ Since we use ```jquery``` and ```msdropdown (js & css)``` for the widget , you n
 ```python
 # templates/base.html
 
-# You should include jquery , jquery-ui.js & jquery-ui.css
+# You should include jquery and msdropdown (js & css )
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/js/msdropdown/jquery.dd.min.js"></script>
@@ -34,6 +34,15 @@ Since we use ```jquery``` and ```msdropdown (js & css)``` for the widget , you n
 # alternativly my suggestion is to use the modified version of the css file ( dd.css ) that you can find in test_select_image/static/msdropdown/dd.css
 
 </head>
+
+# Anywhere in the body section, you have to include this block code
+
+```javascript
+<script language="javascript">
+  $(document).ready(function(e) {
+    $(".select-img").msDropDown();
+  });
+</script>
 ```
 
 Add the form field to your form ( since we use django's forms.ChoiceField() we pass choices as a tuple (value,text,image source) for each option in the select-dropdown ).
@@ -62,7 +71,7 @@ class CountriesForm(forms.Form):
 ```
 
 
-## Example fields
+## Example field
 
 This an example field that is used in the test_select_image app
 NOTE: For this field it's not used the default dd.css file from the msdropdown, instead it's used the test_select_image/static/msdropdown/dd.css file
