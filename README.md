@@ -6,22 +6,22 @@
 [![Build Status](https://travis-ci.org/Chive/django-multiupload.svg?branch=master)](https://travis-ci.org/Chive/django-multiupload)
 
 
-A range-slider field that uses django's ```forms.CharField()``` and ```jquery-ui``` to stylize and create the field. 
+A dropdown(with images) field that uses django's ```forms.ChoiceField()``` and ```msdropdown``` to stylize and create the field. 
 
 ## Installation
 
 * Install the package using pip (or easy_install if you really have to)
 
 ```bash
-$ pip install django_range_slider
+$ pip install django_select_image_field
 ```
 
 ## Usage
 
-An example app is avilable at [example app](https://github.com/shakle17/django_range_slider/tree/master/test_slider).
+An example app is avilable at [example app](https://github.com/shakle17/django_select_image_field/tree/master/test_select_image).
 
 
-Since we use ```jquery``` and ```jquery-ui``` for the widget , you need to include them in your main template (or the template where the widget will be rendered)
+Since we use ```jquery``` and ```msdropdown (js & css)``` for the widget , you need to include them in your main template (or the template where the widget will be rendered)
 
 ```python
 # templates/base.html
@@ -29,52 +29,45 @@ Since we use ```jquery``` and ```jquery-ui``` for the widget , you need to inclu
 # You should include jquery , jquery-ui.js & jquery-ui.css
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<link href="http://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" rel="stylesheet">
-<script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js" ></script>
+<script src="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/js/msdropdown/jquery.dd.min.js"></script>
+<link rel="stylesheet" href="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/css/msdropdown/dd.css">
+<!-- alternativly my suggestion is to use the modified version of the css file ( dd.css ) that you can find in test_select_image/static/msdropdown/dd.css -->
+
 </head>
 ```
 
-Add the form field to your form , with or without the optional keyword-arguments.
-* ```label=False``` is set as default value for the input field
+Add the form field to your form ( since we use django's forms.ChoiceField() we pass choices as a tuple (value,text,image source) for each option in the select-dropdown ).
 
 ```python
 # forms.py
 from django import forms
 from django_range_slider.fields import RangeSliderField
 
-class SliderForm(forms.Form):
-     name_range_field = RangeSliderField(minimum=30,maximum=300,name="TestName") # with name inside the input field (no label)
-     range_field = RangeSliderField(minimum=10,maximum=102) # without name or label
-     label_range_field = RangeSliderField(label="TestLabel",minimum=1,maximum=10) # with label (no name)
+COUNTRIES = (
+    ('0','Macedonia','static/images/mk.png'),
+    ('1','Hungary','static/images/hu.png'),
+    ('2','Ireland','static/images/ir.jpg'),
+    ('3','Ecuador','static/images/ec.png'),
+    ('4','Slovenia','static/images/si.png'),
+)
+
+
+class CountriesForm(forms.Form):
+
+    name = SelectImageField(choices=COUNTRIES)
+
+    def __init__(self, *args, **kwargs):
+        super(CountriesForm, self).__init__(*args, **kwargs)
+        self.fields['name'].widget.attrs['class'] = 'select-img' # select-img class is used to mark the field as SELECT-IMAGE
 ```
 
 
 ## Example fields
 
+This an example field that is used in the test_select_image app
+NOTE: For this field it's not used the default dd.css file from the msdropdown, instead it's used the test_select_image/static/msdropdown/dd.css file
 
-- Range-slider field with name(as argument):
-
-```python    
-name_range_field = RangeSliderField(minimum=30,maximum=300,name="TestName") # with name inside the input field (no label)
-```
-![field with name](https://s24.postimg.org/oq9tho8ud/Screenshot_from_2016_12_15_04_34_07.png)
-
-
-- Range-slider field without name or label:
-
-```python    
-     range_field = RangeSliderField(minimum=10,maximum=102) # without name or label
-```
-![field without name or label](https://s28.postimg.org/g1zb96np9/Screenshot_from_2016_12_15_04_37_52.png)
-
-
-- Range-slider field with label:
-
-```python    
-     label_range_field = RangeSliderField(label="TestLabel",minimum=1,maximum=10) # with label (no name)
-```
-![field with label](https://s28.postimg.org/v0y7n946l/Screenshot_from_2016_12_15_04_37_34.png)
-
+![select-image field](https://s27.postimg.org/i9xa4grb7/Screenshot_from_2017_01_26_02_56_44.png)
 
 
 ## License
