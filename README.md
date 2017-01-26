@@ -31,7 +31,7 @@ Since we use ```jquery``` and ```msdropdown (js & css)``` for the widget , you n
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/js/msdropdown/jquery.dd.min.js"></script>
 <link rel="stylesheet" href="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/css/msdropdown/dd.css">
-<!--- alternativly my suggestion is to use the modified version of the css file ( dd.css ) that you can find in test_select_image/static/msdropdown/dd.css --->
+# alternativly my suggestion is to use the modified version of the css file ( dd.css ) that you can find in test_select_image/static/msdropdown/dd.css
 
 </head>
 ```
