@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <!-- <script src="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/js/msdropdown/jquery.dd.min.js"></script>
   <link rel="stylesheet" href="http://www.marghoobsuleman.com/mywork/jcomponents/image-dropdown/samples/css/msdropdown/dd.css"> -->
   <link href="{% static 'msdropdown/dd.css' %}" rel="stylesheet">
@@ -10,14 +10,10 @@
 </head>
 
 <body>
-  <script language="javascript">
-$(document).ready(function(e) {
-try {
-$(".select-img").msDropDown();
-} catch(e) {
-alert(e.message);
-}
-});
+<script language="javascript">
+  $(document).ready(function(e) {
+    $(".select-img").msDropDown();
+  });
 </script>
 <div class="row" style="margin:10px;padding:10px;">
 <div class="col-xs-3 col-sm-3">
